@@ -32,7 +32,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">portalcasting</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.24.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.25.3</span>
       </span>
     </div>
 
@@ -106,11 +106,13 @@
  See <code>Details</code> for argument-specific rules.</p>
     </div>
 
-    <div id="ref-usage">Usage,<div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">check_args</span><span class="op">(</span>arg_checks <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+    <div id="ref-usage">
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">check_args</span><span class="op">(</span>arg_checks <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 
 <span class="fu">check_arg</span><span class="op">(</span><span class="va">arg_name</span>, <span class="va">arg_value</span>, fun_name <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>
 
-<span class="fu">check_arg_list</span><span class="op">(</span><span class="op">)</span></code></pre></div></div>
+<span class="fu">check_arg_list</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+    </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
@@ -189,6 +191,7 @@ checked.</p></dd>
   <code>movedTF</code>,</p>
 <p>Must be length-1 <code>character</code> values, can be <code>NULL</code>, but cannot 
  be <code>NA</code>:
+  <code>climate_forecast_source</code>, 
   <code>colname</code>, 
   <code>data_name</code>, 
   <code>data_set</code>, 
@@ -216,6 +219,10 @@ checked.</p></dd>
   <code>path</code>,
   <code>plots</code> (if not <code>NULL</code>, must be <code>"all"</code> or 
    <code>"longterm"</code>),
+  <code>portalPredictions_source</code>, 
+  <code>portalPredictions_version</code>, 
+  <code>PortalData_source</code>, 
+  <code>PortalData_version</code>, 
   <code>raw_data</code>, 
   <code>sep_char</code>, 
   <code>set</code>,
@@ -301,6 +308,7 @@ checked.</p></dd>
 <p>Must be length-1 <code>Date</code>-conformable values, can be <code>NULL</code>, 
  but cannot be <code>NA</code>:
   <code>cast_date</code>,
+  <code>climate_forecast_version</code>, 
   <code>date</code>
   <code>end</code>,
   <code>from_date</code>,
@@ -372,7 +380,7 @@ checked.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.9000.9000.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.9000.</p>
 </div>
 
       </footer></div>
