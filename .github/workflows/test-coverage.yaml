@@ -26,17 +26,37 @@ jobs:
           # pull_request ref https://github.com/orgs/community/discussions/28474
           ref: ${{ github.event.pull_request.head.sha }}
 
-      - name: Check Commit message
-        uses: gsactions/commit-message-checker@v2
-        with:
-          pattern: ^[A-Za-z0-9\s$&+,:;=?@#|'`<>.^*()%!-]{15,72}$
-          flags: 'gm'
-          excludeDescription: 'true' # optional: this excludes the description body of a pull request
-          excludeTitle: 'true' # optional: this excludes the title of a pull request
-          checkAllCommitMessages: 
-          error: 'Length of commit messages should be between 15 to 72 chars long'
-          accessToken: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Check Commit message
+      #   uses: gsactions/commit-message-checker@v2
+      #   with:
+      #     pattern: ^[A-Za-z0-9\s$&+,:;=?@#|\'`<>.^*()%!-]{15,72}$
+      #     flags: 'gm'
+      #     excludeDescription: 'true' # optional: this excludes the description body of a pull request
+      #     excludeTitle: 'true' # optional: this excludes the title of a pull request
+      #     checkAllCommitMessages: 
+      #     error: 'Length of commit messages should be between 15 to 72 chars long'
+      #     accessToken: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Test coverage
-        run: git --no-pager log --no-merges --format=%B -n 1
+
+      # - name: Test Commit Message
+      #   id: version
+      #   env: 
+      #     LOG: ${{ '$(git --no-pager log --no-merges --format=%B -n 1)' }}
+      #   run: |
+      #     R -e "library(stringr); str_detect('${{ env.LOG }}', "^[A-Za-z0-9\\s$&+,:;=?@#|\'`<>.^*()%!-]{15,72}$")"
+
+      - name: Test Commit Message2
+        id: version
+        env: 
+          LOG: ${{ '$(git --no-pager log --no-merges --format=%B -n 1)' }}
+        run: |
+          input=$1
+          if [[ '${{ env.LOG }}' =~ ^[A-Za-z0-9\\s$&+,:;=?@#|\'`<>.^*()%!-]{15,72}$") ]]
+          then
+            echo "Valid commit message"
+          else
+            echo "Invalid commit, Commit message should be 15  - 72 chars"
+            exit 1
+          fi
+
 
