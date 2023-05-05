@@ -33,7 +33,7 @@ jobs:
       - name: Check Commit message
         uses: gsactions/commit-message-checker@v2
         with:
-          pattern: '^[A-Za-z0-9\s$&+,:;=?@#|'<>.^*()%!-]{15,72}$'
+          pattern: '^.+(Resolves|Fixes): \#[0-9]+$'
           flags: 'gm'
           error: 'Length of commit messages should be between 15 to 72 chars long'
 
